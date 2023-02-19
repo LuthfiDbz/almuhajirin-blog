@@ -1,25 +1,32 @@
-import logo from './logo.svg';
+import React, { Suspense, useEffect, useState } from "react";
+import { Route, Routes, Navigate, BrowserRouter } from "react-router-dom";
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import routes from "./routes";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    // <Suspense fallback={<LoadingSpinner size="large" />}>
+    <Suspense>
+      <BrowserRouter>
+        <Routes>
+          {routes?.map((el, idx) => (
+            <Route
+              key={idx}
+              path={el.path}
+              element={
+                <el.element
+                  useEffect={useEffect}
+                  useState={useState}
+                />
+              }
+            />
+          ))}
+          {/* <Route path="*" element={<NotFound />} /> */}
+        </Routes>
+      </BrowserRouter>
+    </Suspense>
+  )
 }
 
 export default App;

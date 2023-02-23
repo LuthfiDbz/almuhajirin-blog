@@ -1,63 +1,106 @@
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Offcanvas from 'react-bootstrap/Offcanvas';
+import React, { useState } from "react";
+import {
+  AppBar,
+  Button,
+  Tab,
+  Tabs,
+  Toolbar,
+  Typography,
+  useMediaQuery,
+  useTheme,
+  Select,
+  Menu,
+  MenuItem    
+} from "@mui/material";
+import AddBusinessRoundedIcon from "@mui/icons-material/AddBusinessRounded";
+import DrawerComp from "./Drawer";
+import AboveHeader from "./AboveHeader";
 
-const Headers = () => {
+const Header = () => {
+  const [value, setValue] = useState();
+  const theme = useTheme();
+  console.log(theme);
+  const isMatch = useMediaQuery(theme.breakpoints.down("md"));
+  console.log(isMatch);
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
-    <>
-      <Navbar bg="dark" expand='lg' className="mb-3 px-lg-3" variant='dark'>
-          <Container fluid>
-          <Navbar.Brand href="#">Ponpes Alam Terpadu Al-Muhajirin</Navbar.Brand>
-          <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-lg`} />
-          <Navbar.Offcanvas
-            id={`offcanvasNavbar-expand-lg`}
-            aria-labelledby={`offcanvasNavbarLabel-expand-lg`}
-            placement="end"
-          >
-            <Offcanvas.Header closeButton>
-            <Offcanvas.Title id={`offcanvasNavbarLabel-expand-lg`}>
-                
-            </Offcanvas.Title>
-            </Offcanvas.Header>
-            <Offcanvas.Body>
-            <Nav className="justify-content-end flex-grow-1 pe-3">
-              <Nav.Link href="/">Beranda</Nav.Link>
-              <NavDropdown
-              title="Profil"
-              id={`offcanvasNavbarDropdown-expand-lg`}
+    <React.Fragment>
+      <AppBar sx={{ background: "#000000" }}>
+      <AboveHeader />
+        <Toolbar>
+          {/* <AddBusinessRoundedIcon sx={{ transform: "scale(2)" }} /> */}
+          <Typography sx={{ fontSize: "1.5rem", paddingLeft: "0" }}>
+            Ponpes Alam Terpadu Al-Muhajirin
+          </Typography>
+          
+          {isMatch ? (
+            <>
+              {/* <Typography sx={{ fontSize: "2rem", paddingLeft: "10%" }}>
+                Shoppee
+              </Typography> */}
+              <DrawerComp />
+            </>
+          ) : (
+            <>
+              <Tabs
+                sx={{ marginLeft: "auto" }}
+                indicatorColor="secondary"
+                textColor="inherit"
+                value={value}
+                onChange={(e, value) => setValue(value)}
               >
-                <NavDropdown.Item href="#action3" bg="dark">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">
-                    Another action
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action5">
-                    Something else here
-                </NavDropdown.Item>
-              </NavDropdown>
-              <Nav.Link href="/prestasi">Prestasi</Nav.Link>
-              <Nav.Link href="/ppdb">PPDB</Nav.Link>
-              <Nav.Link href="/galeri">Galeri Al-Muhajirin</Nav.Link>
-            </Nav>
-            <Form className="d-flex">
-              <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-              />
-              <Button variant="outline-light">Search</Button>
-            </Form>
-            </Offcanvas.Body>
-          </Navbar.Offcanvas>
-          </Container>
-      </Navbar>
-    </>
+                <Tab label="Beranda" />
+                <Tab label="Profil" />
+                <div>
+                  <Button
+                    id="basic-button"
+                    aria-controls={open ? 'basic-menu' : undefined}
+                    aria-haspopup="true"
+                    aria-expanded={open ? 'true' : undefined}
+                    onClick={handleClick}
+                  >
+                    <Tab label="Profil" />
+                  </Button>
+                  <Menu
+                    id="basic-menu"
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleClose}
+                    MenuListProps={{
+                      'aria-labelledby': 'basic-button',
+                    }}
+                  >
+                    <MenuItem onClick={handleClose}>Profile</MenuItem>
+                    <MenuItem onClick={handleClose}>My account</MenuItem>
+                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                  </Menu>
+                </div>
+                <Tab label="Prestasi" />
+                <Tab label="PPDB" />
+                <Tab label="Galeri Al-Muhajirin" />
+              </Tabs>
+                
+              {/* <Button sx={{ marginLeft: "auto" }} variant="contained">
+                Login
+              </Button>
+              <Button sx={{ marginLeft: "10px" }} variant="contained">
+                SignUp
+              </Button> */}
+            </>
+          )}
+        </Toolbar>
+      </AppBar>
+    </React.Fragment>
   );
-}
+};
 
-export default Headers;
+export default Header;

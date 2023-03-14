@@ -16,6 +16,7 @@ const Hero = () => {
   return (
     <Grid item xs={12} sx={{height: '100vh'}}>
       <img src={HeroImg} alt="" className='hero-img'/>
+      {/* <h1>PONDOK PESANTREN</h1> */}
     </Grid>
   );
 }

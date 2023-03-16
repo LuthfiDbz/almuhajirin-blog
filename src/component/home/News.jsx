@@ -7,6 +7,7 @@ import NewsImg1 from "../../assets/news1.png"
 import NewsImg2 from "../../assets/news2.jpg"
 import NewsImg3 from "../../assets/news3.jpeg"
 import { Link, Typography } from '@mui/material';
+import { red } from '@mui/material/colors';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#000000',
@@ -36,7 +37,7 @@ const News = () => {
               backgroundSize: 'cover'
             }}
           ></div>
-          <Typography variant='h5' sx={{ fontWeight: 'bold', mt: 5 }}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos eligendi sunt maiores neque nostrum, necessitatibus temporibus ipsa quam eius ipsam.</Typography>
+          <Typography variant='h5' sx={{ fontWeight: 'bold', mt: 5 }}><Link underline="none" color="inherit" href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos eligendi sunt maiores neque nostrum, necessitatibus temporibus ipsa quam eius ipsam.</Link></Typography>
         </Grid>
         <Grid item xs={5}>
           <Grid item xs={12}>
@@ -48,7 +49,7 @@ const News = () => {
                 backgroundSize: 'cover'
               }}
             ></div>
-            <Typography  variant='h6' sx={{ fontWeight: 'bold', mt: 2, mb: 3 }}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos eligendi sunt maiores neque nostrum, necessitatibus temporibus ipsa quam eius ipsam.</Typography>
+            <Typography  variant='h6' sx={{ fontWeight: 'bold', mt: 2, mb: 3 }}><Link underline="none" color="inherit" href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos eligendi sunt maiores neque nostrum, necessitatibus temporibus ipsa quam eius ipsam.</Link></Typography>
           </Grid>
           <Grid item xs={12}>
             <div
@@ -59,7 +60,7 @@ const News = () => {
                 backgroundSize: 'cover'
               }}
             ></div>
-            <Typography variant='h6' sx={{ fontWeight: 'bold', mt: 2, mb: 3 }}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos eligendi sunt maiores neque nostrum, necessitatibus temporibus ipsa quam eius ipsam.</Typography>
+            <Typography variant='h6' sx={{ fontWeight: 'bold', mt: 2, mb: 3 }}><Link underline="none" color="inherit" href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos eligendi sunt maiores neque nostrum, necessitatibus temporibus ipsa quam eius ipsam.</Link></Typography>
           </Grid>
         </Grid>
       </Grid>

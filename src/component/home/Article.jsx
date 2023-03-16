@@ -41,7 +41,7 @@ const Article = () => {
             ></div>
             <Typography 
               variant='subtitle1' color='white'
-              sx={{paddingInline:'2rem'}}>Bagaimana hukum infaq uang/infaq tunai?</Typography>
+              sx={{paddingInline:'2rem'}}><Link underline="none" color="inherit" href="#">Bagaimana hukum infaq uang/infaq tunai?</Link></Typography>
           </Grid>
           <Grid 
             item
@@ -55,7 +55,7 @@ const Article = () => {
                 margin: 'auto'
               }}
             ></div>
-            <Typography variant='subtitle1' color='white' sx={{paddingInline:'2rem'}}>Pandangan islam dan kedokteran terkait minum sambil duduk</Typography>
+            <Typography variant='subtitle1' color='white' sx={{paddingInline:'2rem'}}><Link underline="none" color="inherit" href="#">Pandangan islam dan kedokteran terkait minum sambil duduk</Link></Typography>
           </Grid>
           <Grid 
             item
@@ -69,7 +69,7 @@ const Article = () => {
                 margin: 'auto'
               }}
             ></div>
-            <Typography variant='subtitle1' color='white' sx={{paddingInline:'2rem'}}>Tahukah kalian zaman Rasulullah ada orang buta yang rajin sholat?</Typography>
+            <Typography variant='subtitle1' color='white' sx={{paddingInline:'2rem'}}><Link underline="none" color="inherit" href="#">Tahukah kalian zaman Rasulullah ada orang buta yang rajin sholat?</Link></Typography>
           </Grid>
           <Grid 
             item
@@ -83,7 +83,7 @@ const Article = () => {
                 margin: 'auto'
               }}
             ></div>
-            <Typography variant='subtitle1' color='white' sx={{paddingInline:'2rem'}}>Kisah perjalanan Rasulullah Isra' Mi'raj</Typography>
+            <Typography variant='subtitle1' color='white' sx={{paddingInline:'2rem'}}><Link underline="none" color="inherit" href="#">Kisah perjalanan Rasulullah Isra' Mi'raj</Link></Typography>
           </Grid>
         </Grid>
       </Grid>

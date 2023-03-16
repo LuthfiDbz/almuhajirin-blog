@@ -6,6 +6,7 @@ import Grid from '@mui/material/Grid';
 import Hero from '../component/home/Hero';
 import News from '../component/home/News';
 import Article from '../component/home/Article';
+import Announcement from '../component/home/Announcement';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -27,6 +28,7 @@ const Home = () => {
         <Hero />
         <News />
         <Article />
+        <Announcement />
       </Grid>
     </Box>
   );
